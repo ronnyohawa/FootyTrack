@@ -79,8 +79,6 @@ tensorflow_intel
 termcolor==2.5.0
 threadpoolctl==3.5.0
 toml==0.10.2
-torch
-torchvision
 tornado==6.4.2
 tqdm==4.67.1
 typing_extensions
