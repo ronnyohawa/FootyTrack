@@ -106,7 +106,8 @@ def upload_video():
         processed_frames = process_video(file)
 
         # Save processed video
-        output_path = 'output_videos/output_video.avi'
+        output_temp = tempfile.NamedTemporaryFile(delete=False, suffix=".avi")
+        output_path = output_temp.name
         save_video(processed_frames, output_path)
 
         # Provide download link for the processed video
@@ -118,4 +119,4 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ['mp4', 'avi', 'mov']
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=True)
