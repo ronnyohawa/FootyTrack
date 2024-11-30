@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processed Video</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Processed Video</h1>
+        <h3>Uploaded Video:</h3>
+        <video controls width="80%" autoplay>
+            <source src="{{ url_for('uploaded_file', filename=upload_url) }}" type="video/mp4">
+        </video>
+
+        <h3>Processed Video:</h3>
+        <video controls width="80%" autoplay>
+            <source src="{{ url_for('processed_video', filename='output_video.avi') }}" type="video/avi">
+        </video>
+
+        <br><br>
+        <a href="{{ url_for('processed_video', filename='output_video.avi') }}" download="processed_video.avi">
+            <button>Download Processed Video</button>
+        </a>
+    </div>
+</body>
+</html>
